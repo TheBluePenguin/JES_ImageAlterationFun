@@ -1,8 +1,8 @@
 # Made by Zachary Criswell on April/4/2021
 import random
 def imageRandomizer():
-# makePicture can be replaced with any picture of your choosing.
-  picture = makePicture('C:\Users\zacha\Desktop\School Homework\collage\Niko.jpg')
+  file = pickAFile()
+  picture = makePicture(file)
   for x in range(0, 10):  
       randomizer(picture)
   explore(picture)
