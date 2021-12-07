@@ -1,7 +1,7 @@
 # Made by Zachary Criswell on April/4/2021
 def imageBlocks():
-# makePicture can be replaced with any picture of your choosing.
-  picture = makePicture('C:\Users\zacha\Desktop\School Homework\collage\Niko.jpg')
+  file = pickAFile()
+  picture = makePicture(file)
   canvas = makeEmptyPicture((getWidth(picture)*2),(getHeight(picture)*2))
   orignal(picture, canvas, (getWidth(canvas)/2), 0)
   downReverseDarken(picture, canvas, 0, (getHeight(canvas)/2))
