@@ -3,26 +3,28 @@ import random
 def imageBlocks():
 # Selects a picture of your choosing.
   picture = makePicture(pickAFile())
+  global blNum
+  blNum = requestInteger("Choose the number of blocks youd like the width and height to be set as") 
   canvas = makeEmptyPicture(getWidth(picture),getHeight(picture))
   filter(picture, canvas)
   explore(canvas)
-  
 
 def filter(picture, canvas):
 # Sets block sizes
-  widthBlock = getWidth(picture)/8
-  heightBlock = getHeight(picture)/8
+  widthBlock = getWidth(picture)/blNum
+  heightBlock = getHeight(picture)/blNum
   
 # Matches the number of blocks
   a = 0
   b = 0
-  for a in range(0, 8):
-    for b in range(0, 8):
-    
+  for a in range(0, blNum):
+    for b in range(0, blNum):
+      
       #Gets random effect Number
       randomEffect = random.randrange(0, 5)
+      
       #Makes a dark block
-      if(randomEffect == 0):
+      if(randomEffect == 1):
         for x in range(widthBlock*a, widthBlock*(a+1)):
           for y in range(heightBlock*b, heightBlock*(b+1)):
             sourcePx = getPixel(picture,x,y)
@@ -33,7 +35,7 @@ def filter(picture, canvas):
           x = x + 1
           y = 0   
       #No effect block
-      elif(randomEffect == 1):
+      elif(randomEffect == 2):
         for x in range(widthBlock*a, widthBlock*(a+1)):
           for y in range(heightBlock*b, heightBlock*(b+1)):
             sourcePx = getPixel(picture,x,y)
@@ -44,7 +46,7 @@ def filter(picture, canvas):
           x = x + 1
           y = 0 
       #Makes a extra light block 
-      elif(randomEffect == 2):
+      elif(randomEffect == 3):
         for x in range(widthBlock*a, widthBlock*(a+1)):
           for y in range(heightBlock*b, heightBlock*(b+1)):
             sourcePx = getPixel(picture,x,y)
@@ -55,7 +57,7 @@ def filter(picture, canvas):
           x = x + 1
           y = 0 
       #Makes a extra dark block
-      elif(randomEffect == 3):
+      elif(randomEffect == 4):
         for x in range(widthBlock*a, widthBlock*(a+1)):
           for y in range(heightBlock*b, heightBlock*(b+1)):
             sourcePx = getPixel(picture,x,y)
@@ -78,4 +80,3 @@ def filter(picture, canvas):
           y = 0
   a = a + 1
   b = b + 1
-  
